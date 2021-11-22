@@ -4,12 +4,13 @@ import Header from './components/Header';
 
 import {Colors} from './global/styles';
 import SignInScreen from './screens/authScreens/SignInScreen';
+import SignInWelcomScreen from './screens/authScreens/SignInWelcomScreen';
 
 export default function Root() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={Colors.statusbar} />
-      <SignInScreen />
+      <SignInWelcomScreen />
     </View>
   );
 }
