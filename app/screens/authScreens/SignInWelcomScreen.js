@@ -5,7 +5,7 @@ import {Colors, parameters} from '../../global/styles';
 import Swiper from 'react-native-swiper';
 import Header from '../../components/Header';
 
-export default function SignInWelcomScreen() {
+export default function SignInWelcomScreen({navigation}) {
   return (
     <View style={{flex: 1}}>
       <Header title="HOTEL BOOKING" />
@@ -64,7 +64,9 @@ export default function SignInWelcomScreen() {
             title="SIGN IN"
             buttonStyle={parameters.styledButton}
             titleStyle={parameters.buttonTitle}
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('SignInScreen');
+            }}
           />
         </View>
       </View>
