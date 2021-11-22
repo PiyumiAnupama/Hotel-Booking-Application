@@ -5,7 +5,7 @@ import {Colors, parameters, title} from '../../global/styles';
 import * as Animatable from 'react-native-animatable';
 import Header from '../../components/Header';
 
-export default function SignInScreen() {
+export default function SignInScreen({navigation}) {
   const [TextInput2Fossued, setTextInput2Fossued] = useState(false);
 
   const TextInput1 = useRef(1);
@@ -66,11 +66,6 @@ export default function SignInScreen() {
             />
           </Animatable.View>
         </View>
-        <View style={{marginTop: 10, marginLeft: 25, marginBottom: 5}}>
-          <Text style={{...styles.text, textDecorationLine: 'underline'}}>
-            Forgot Password ?
-          </Text>
-        </View>
       </View>
       <View style={{marginHorizontal: 20, marginTop: 30}}>
         <Button
@@ -81,11 +76,16 @@ export default function SignInScreen() {
         />
       </View>
 
+      <View style={{alignItems: 'center', marginTop: 15}}>
+        <Text style={{...styles.text, textDecorationLine: 'underline'}}>
+          Forgot Password ?
+        </Text>
+      </View>
       <View
         style={{
           alignItems: 'center',
           marginTop: 30,
-          marginBottom: 20,
+          marginBottom: 30,
         }}>
         <Text style={{fontSize: 20, fontWeight: 'bold'}}>OR</Text>
       </View>
