@@ -13,7 +13,7 @@ export default function SignInScreen({navigation}) {
 
   return (
     <View style={styles.conteiner}>
-      <Header title="HOTEL BOOKING" type="arrow-left" />
+      <Header title="HOTEL BOOKING" type="arrow-left" navigation={navigation} />
       <View style={{marginLeft: 20, marginTop: 10}}>
         <Text style={title}>Sing-In</Text>
       </View>
@@ -72,7 +72,9 @@ export default function SignInScreen({navigation}) {
           title="SIGN IN"
           buttonStyle={parameters.styledButton}
           titleStyle={parameters.buttonTitle}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('Homescreen');
+          }}
         />
       </View>
 
