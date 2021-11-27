@@ -2,8 +2,10 @@ import React from 'react';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import SignInScreen from '../screens/authScreens/SignInScreen';
 import SignInWelcomScreen from '../screens/authScreens/SignInWelcomScreen';
-import Homescreen from '../screens/HomeScreen';
 
+import HotelMapScreen from '../screens/HotelMapScreen';
+
+import RootBottomTab from './BottomBar';
 
 const Auth = createStackNavigator();
 
@@ -28,8 +30,17 @@ export function AuthStack() {
         }}
       />
       <Auth.Screen
-        name="Homescreen"
-        component={Homescreen}
+        name="RootBottomTab"
+        component={RootBottomTab}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+
+      <Auth.Screen
+        name="HotelMapScreen"
+        component={HotelMapScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,

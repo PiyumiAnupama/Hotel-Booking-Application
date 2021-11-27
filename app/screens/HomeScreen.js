@@ -19,7 +19,7 @@ import HotelList from '../components/HotelList';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export default function Homescreen() {
+export default function Homescreen({navigation}) {
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState('0');
   return (
@@ -50,6 +50,7 @@ export default function Homescreen() {
             <TouchableOpacity
               onPress={() => {
                 setDelivery(false);
+                navigation.navigate('HotelMapScreen');
               }}>
               <View
                 style={{
@@ -227,6 +228,23 @@ export default function Homescreen() {
           </View>
         </View>
       </ScrollView>
+      {delivery && (
+        <View style={styles.floatButton}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('HotelMapScreen');
+            }}>
+            <Icon
+              name="place"
+              type="material"
+              size={32}
+              color={Colors.buttons}
+            />
+
+            <Text style={{color: Colors.grey2}}>Map</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 }
@@ -309,4 +327,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.grey2,
   },
+  floatButton: {
+    position: 'absolute',
+    bottom: 10,
+    right: 15,
+    backgroundColor: 'white',
+    elevation: 10,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    alignItems: 'center',
+  },
 });
+
