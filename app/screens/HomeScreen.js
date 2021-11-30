@@ -24,7 +24,7 @@ export default function Homescreen({navigation}) {
   const [indexCheck, setIndexCheck] = useState('0');
   return (
     <View style={styles.conteiner}>
-      <HomeHeader />
+      <HomeHeader navigation={navigation} />
       <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={true}>
         <View
           style={{backgroundColor: Colors.cardbackground, paddingBottom: 5}}>
@@ -292,7 +292,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     paddingLeft: 10,
-   
   },
   headerTextView: {
     backgroundColor: Colors.grey5,
@@ -339,4 +338,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-

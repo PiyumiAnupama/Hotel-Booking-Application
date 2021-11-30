@@ -6,6 +6,7 @@ import SignInWelcomScreen from '../screens/authScreens/SignInWelcomScreen';
 import HotelMapScreen from '../screens/HotelMapScreen';
 
 import RootBottomTab from './BottomBar';
+import DrawerNavigator from './DrawerNavigator';
 
 const Auth = createStackNavigator();
 
@@ -30,15 +31,15 @@ export function AuthStack() {
         }}
       />
       <Auth.Screen
-        name="RootBottomTab"
-        component={RootBottomTab}
+        name="DrawerNavigator"
+        component={DrawerNavigator}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
 
-      <Auth.Screen
+<Auth.Screen
         name="HotelMapScreen"
         component={HotelMapScreen}
         options={{
