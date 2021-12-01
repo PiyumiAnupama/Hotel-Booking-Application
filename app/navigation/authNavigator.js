@@ -7,12 +7,21 @@ import HotelMapScreen from '../screens/HotelMapScreen';
 
 import RootBottomTab from './BottomBar';
 import DrawerNavigator from './DrawerNavigator';
+import Splash from '../screens/authScreens/WelcomeScreen';
 
 const Auth = createStackNavigator();
 
 export function AuthStack() {
   return (
     <Auth.Navigator>
+     <Auth.Screen
+        name="Splash"
+        component={Splash}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
       <Auth.Screen
         name="SignInWelcomeScreen"
         component={SignInWelcomScreen}
