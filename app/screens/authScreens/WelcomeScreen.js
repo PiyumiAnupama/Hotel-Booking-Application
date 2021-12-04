@@ -18,7 +18,7 @@ const Splash = ({navigation}) => {
       <StatusBar
         barStyle="light-content"
         hidden={false}
-        backgroundColor="#465bd8"
+        backgroundColor={Colors.buttons}
       />
     
       <Text
