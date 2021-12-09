@@ -105,3 +105,5 @@ export const hotelData = [
     id: 3,
   },
 ];
+
+
