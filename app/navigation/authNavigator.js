@@ -5,10 +5,12 @@ import SignInWelcomScreen from '../screens/authScreens/SignInWelcomScreen';
 
 import HotelMapScreen from '../screens/HotelMapScreen';
 
-import RootBottomTab from './BottomBar';
 import DrawerNavigator from './DrawerNavigator';
 import Splash from '../screens/authScreens/WelcomeScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
+import HotelInfoScreen from '../screens/HotelInfoScreen';
+import Info from '../screens/Info';
+import MoreInfoScreen from '../screens/MoreInfoScreen';
 
 const Auth = createStackNavigator();
 
@@ -60,6 +62,30 @@ export function AuthStack() {
    <Auth.Screen
         name="SearchResultScreen"
         component={SearchResultScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+       <Auth.Screen
+        name="HotelInfoScreen"
+        component={HotelInfoScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+       <Auth.Screen
+        name="Info"
+        component={Info}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+       <Auth.Screen
+        name="MoreInfoScreen"
+        component={MoreInfoScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,
