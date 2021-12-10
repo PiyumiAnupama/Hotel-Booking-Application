@@ -11,6 +11,7 @@ import SearchResultScreen from '../screens/SearchResultScreen';
 import HotelInfoScreen from '../screens/HotelInfoScreen';
 import Info from '../screens/Info';
 import MoreInfoScreen from '../screens/MoreInfoScreen';
+import SignUpScreen from '../screens/authScreens/SignUpScreen';
 
 const Auth = createStackNavigator();
 
@@ -86,6 +87,15 @@ export function AuthStack() {
        <Auth.Screen
         name="MoreInfoScreen"
         component={MoreInfoScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+
+<Auth.Screen
+        name="SignUpScreen"
+        component={SignUpScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,
