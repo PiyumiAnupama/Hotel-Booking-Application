@@ -1,14 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
+import auth from '@react-native-firebase/auth';
 
-import {
-  View,
-  Text,
-  Linking,
-  Pressable,
-  Alert,
-  Switch,
-  StyleSheet,
-} from 'react-native';
+import {View, Text, Alert, Switch, StyleSheet} from 'react-native';
 
 import {
   DrawerContentScrollView,
@@ -16,15 +9,33 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
-import {Avatar, Button, Icon} from 'react-native-elements';
+import {Avatar, Icon} from 'react-native-elements';
 
 import {Colors} from '../global/styles';
+import {SignInContext} from '../context/authContext';
 
 export default function MenuBar(props) {
+  const {dispatchSignedIn} = useContext(SignInContext);
+  async function signOut() {
+    try {
+      auth()
+        .signOut()
+        .then(() => {
+          console.log('sign out');
+          dispatchSignedIn({
+            type: 'UPDATE_SIGN_IN',
+            payload: {userToken: null},
+          });
+        });
+    } catch (err) {
+      Alert.alert(err.code);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <DrawerContentScrollView {...props}>
-        <View style={{backgroundColor: Colors.buttons, marginTop:-4}}>
+        <View style={{backgroundColor: Colors.buttons, marginTop: -4}}>
           <View
             style={{
               flexDirection: 'column',
@@ -180,6 +191,9 @@ export default function MenuBar(props) {
             name="logout-variant"
             color={color}
             size={size}
+            onPress={() => {
+              signOut();
+            }}
           />
         )}
       />
