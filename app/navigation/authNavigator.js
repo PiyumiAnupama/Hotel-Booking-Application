@@ -44,56 +44,6 @@ export function AuthStack() {
         }}
       />
       <Auth.Screen
-        name="DrawerNavigator"
-        component={DrawerNavigator}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-
-<Auth.Screen
-        name="HotelMapScreen"
-        component={HotelMapScreen}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-   <Auth.Screen
-        name="SearchResultScreen"
-        component={SearchResultScreen}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-       <Auth.Screen
-        name="HotelInfoScreen"
-        component={HotelInfoScreen}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-       <Auth.Screen
-        name="Info"
-        component={Info}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-       <Auth.Screen
-        name="MoreInfoScreen"
-        component={MoreInfoScreen}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-
-<Auth.Screen
         name="SignUpScreen"
         component={SignUpScreen}
         options={{

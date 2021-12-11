@@ -6,10 +6,12 @@ import * as Animatable from 'react-native-animatable';
 import Header from '../../components/Header';
 import {Formik} from 'formik';
 import auth from '@react-native-firebase/auth';
+import {SignInContext} from '../../context/authContext';
 
 export default function SignInScreen({navigation}) {
+  const {dispatchSignedIn} = useContext(SignInContext);
   const [TextInput2Fossued, setTextInput2Fossued] = useState(false);
-  const {dispatchSignedIn} = useContext;
+
   const TextInput1 = useRef(1);
   const TextInput2 = useRef(2);
 
@@ -18,7 +20,10 @@ export default function SignInScreen({navigation}) {
       const {password, email} = data;
       const user = await auth().signInWithEmailAndPassword(email, password);
       if (user) {
-        console.log('UPDATE_SIGN_IN');
+        dispatchSignedIn({
+          type: 'UPDATE_SIGN_IN',
+          payload: {userToken: 'signed-in'},
+        });
       }
     } catch (error) {
       Alert.alert(error.name, error.message);

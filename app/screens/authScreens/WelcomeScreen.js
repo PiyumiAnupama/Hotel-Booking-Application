@@ -20,13 +20,13 @@ const Splash = ({navigation}) => {
         hidden={false}
         backgroundColor={Colors.buttons}
       />
-    
+
       <Text
         style={{
           fontFamily: 'OpenSans-Bold',
           fontSize: 40,
           color: 'white',
-          fontWeight:'bold',
+          fontWeight: 'bold',
         }}>
         Hotel Booking
       </Text>
@@ -35,5 +35,3 @@ const Splash = ({navigation}) => {
 };
 
 export default Splash;
-
-
