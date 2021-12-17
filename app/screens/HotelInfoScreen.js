@@ -7,12 +7,14 @@ import {
   Dimensions,
   TouchableOpacity,
   Modal,
+  Image,
 } from 'react-native';
 import HotelHeader from '../components/HotelHeader';
 import {hotelData} from '../global/Data';
 import {Colors} from '../global/styles';
 import {Icon} from 'react-native-elements';
 import {TabView, TabBar} from 'react-native-tab-view';
+
 import Info from './Info';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -21,7 +23,7 @@ const initialLayout = SCREEN_WIDTH;
 const HotelInfoScreen = ({navigation, route}) => {
   const {id, hotelName} = route.params;
   const [routes] = useState([
-    {key: 'first', title: 'MENU'},
+    {key: 'first', title: 'Features'},
     {key: 'second', title: 'INFO'},
     {key: 'third', title: 'REVIEWS'},
     {key: 'fourth', title: 'GALLERY'},
@@ -53,26 +55,11 @@ const HotelInfoScreen = ({navigation, route}) => {
       <ScrollView>
         <View>
           <HotelHeader id={id} navigation={navigation} />
-          {hotelData[id].discountPrice && (
-            <View style={styles.view1}>
-              <Text style={styles.text1}>
-                GET {hotelData[id].discountPrice}% OFF ON FOOD TOTAL
-              </Text>
-            </View>
-          )}
           <View style={styles.view2}>
             <View style={styles.view3}>
               <Text style={styles.text2}>{hotelData[id].hotelName}</Text>
-              <Text style={styles.text3}>{hotelData[id].offer}</Text>
+
               <View style={styles.view4}>
-                <Icon
-                  name="star"
-                  type="material-community"
-                  color={Colors.grey3}
-                  size={15}
-                />
-                <Text style={styles.text4}>{hotelData[id].averageReview}</Text>
-                <Text style={styles.text5}>{hotelData[id].numberOfReview}</Text>
                 <Icon
                   name="map-marker"
                   type="material-community"
@@ -80,26 +67,25 @@ const HotelInfoScreen = ({navigation, route}) => {
                   size={15}
                 />
                 <Text style={styles.text6}>
-                  {hotelData[id].distanceToTheCity} mi away
+                  {hotelData[id].distanceToTheCity}
                 </Text>
               </View>
             </View>
             <View style={styles.view5}>
-              <Text style={styles.text6}>Collect</Text>
+              <Text style={styles.text6}>Reviews</Text>
               <View style={styles.view7}>
-                <Text style={styles.text7}>
-                  {hotelData[id].distanceToTheCity}
-                </Text>
-                <Text style={styles.text8}>min</Text>
+                <Text style={styles.text7}>{hotelData[id].numberOfReview}</Text>
               </View>
             </View>
             <View style={styles.view8}>
-              <Text style={styles.text6}>Delivery</Text>
+              <Text style={styles.text6}>Febulous</Text>
               <View style={styles.view9}>
-                <Text style={styles.text9}>{hotelData[id].stars}</Text>
-                <Text style={styles.text11}>min</Text>
+                <Text style={styles.text9}>{hotelData[id].averageReview}</Text>
               </View>
             </View>
+          </View>
+          <View style={styles.view2}>
+            <Text style={styles.text5}>{hotelData[id].businessAddress}</Text>
           </View>
         </View>
 
@@ -113,16 +99,79 @@ const HotelInfoScreen = ({navigation, route}) => {
             tabBarPosition="top"
           />
         </View>
-        {index === 0 && <Info onPress={InfoPressed} />}
+        
+        <View style={styles.view10}>
+          <Text style={styles.text16}>Facilities</Text>
+          <View style={styles.view16}>
+            <Image
+              source={require('../assets/Images/DetailsScreenImages/1.png')}
+              style={{height: 40, width: 40, marginLeft: 10}}
+            />
+            <Text style={styles.text17}>{hotelData[id].facility}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Image
+              source={require('../assets/Images/DetailsScreenImages/7.jpg')}
+              style={{height: 35, width: 35, marginLeft: 10}}
+            />
+            <Text style={styles.text17}>{hotelData[id].facility1}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Image
+              source={require('../assets/Images/DetailsScreenImages/3.png')}
+              style={{height: 40, width: 40, marginLeft: 10}}
+            />
+            <Text style={styles.text17}>{hotelData[id].facility2}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Image
+              source={require('../assets/Images/DetailsScreenImages/4.png')}
+              style={{height: 40, width: 40, marginLeft: 10}}
+            />
+            <Text style={styles.text17}>{hotelData[id].facility3}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Image
+              source={require('../assets/Images/DetailsScreenImages/5.png')}
+              style={{height: 40, width: 40, marginLeft: 10}}
+            />
+            <Text style={styles.text17}>{hotelData[id].facility4}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Image
+              source={require('../assets/Images/DetailsScreenImages/8.png')}
+              style={{height: 35, width: 35, marginLeft: 10}}
+            />
+            <Text style={styles.text17}>{hotelData[id].facility5}</Text>
+          </View>
+        </View>
+        <View style={styles.view17}>
+          <Text style={styles.text16}>Property</Text>
+          <View style={styles.view16}>
+            <Text style={styles.text1}>{hotelData[id].property1}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Text style={styles.text8}>{hotelData[id].intro}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Text style={styles.text1}>{hotelData[id].property2}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Text style={styles.text8}>{hotelData[id].intro1}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Text style={styles.text1}>{hotelData[id].property3}</Text>
+          </View>
+          <View style={styles.view16}>
+            <Text style={styles.text8}>{hotelData[id].intro2}</Text>
+          </View>
+        </View>
       </ScrollView>
 
       <TouchableOpacity>
         <View style={styles.view11}>
           <View style={styles.view12}>
-            <Text style={styles.text13}>View Cart</Text>
-            <View style={styles.view13}>
-              <Text style={styles.text13}>0</Text>
-            </View>
+            <Text style={styles.text13}>BOOK NOW</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -141,7 +190,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  text1: {color: 'green', fontSize: 14, fontWeight: 'bold'},
+  text1: {
+    color: Colors.buttons,
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginLeft: 15,
+    marginBottom:-10,
+  },
 
   view2: {
     flexDirection: 'row',
@@ -172,6 +227,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   text6: {
+    marginTop: 5,
     fontSize: 13,
     color: Colors.grey3,
     marginLeft: 0,
@@ -189,18 +245,19 @@ const styles = StyleSheet.create({
 
   text7: {fontSize: 16, fontWeight: 'bold', color: Colors.black, marginTop: 5},
 
-  text8: {fontSize: 13, color: 'black', marginBottom: 5},
+  text8: {fontSize: 13, color: 'black',  marginLeft: 15},
 
   view8: {flex: 3, alignItems: 'center'},
 
   text9: {fontSize: 15, fontWeight: 'bold', color: Colors.cardbackground},
 
   view9: {
-    width: 40,
-    height: 40,
+    marginTop: 5,
+    width: 35,
+    height: 35,
     backgroundColor: Colors.buttons,
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 30,
     justifyContent: 'space-around',
   },
 
@@ -249,10 +306,12 @@ const styles = StyleSheet.create({
   },
 
   text13: {
-    paddingHorizontal: 3,
+    paddingHorizontal: 100,
     fontWeight: 'bold',
     fontSize: 18,
     color: Colors.cardbackground,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   tab: {
@@ -285,10 +344,24 @@ const styles = StyleSheet.create({
 
   text14: {
     fontWeight: 'bold',
-    marginLeft: 40,
+    marginLeft: 15,
     color: 'black',
     fontSize: 18,
   },
 
   view15: {marginTop: 5, paddingBottom: 20},
+  text16: {
+    fontWeight: 'bold',
+    marginLeft: 15,
+    color: Colors.grey2,
+    fontSize: 22,
+    marginTop: 10,
+  },
+  text17: {fontSize: 15, color: 'black', marginBottom: 5, marginLeft: 5},
+  view16: {flexDirection: 'row', alignItems: 'center', marginTop: 10},
+  view17: {
+    elevation: 10,
+    backgroundColor: Colors.cardbackground,
+    marginTop: 10,
+  },
 });
