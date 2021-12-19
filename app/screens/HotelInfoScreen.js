@@ -15,7 +15,7 @@ import {Colors} from '../global/styles';
 import {Icon} from 'react-native-elements';
 import {TabView, TabBar} from 'react-native-tab-view';
 
-import Info from './Info';
+
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const initialLayout = SCREEN_WIDTH;
@@ -168,7 +168,9 @@ const HotelInfoScreen = ({navigation, route}) => {
         </View>
       </ScrollView>
 
-      <TouchableOpacity>
+      <TouchableOpacity  onPress={() => {
+              navigation.navigate('SelectRoom');
+            }}>
         <View style={styles.view11}>
           <View style={styles.view12}>
             <Text style={styles.text13}>BOOK NOW</Text>

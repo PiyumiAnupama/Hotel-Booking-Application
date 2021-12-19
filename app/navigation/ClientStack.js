@@ -10,6 +10,8 @@ import SearchResultScreen from '../screens/SearchResultScreen';
 import HotelInfoScreen from '../screens/HotelInfoScreen';
 import Info from '../screens/Info';
 
+import DetailScreen from '../screens/DetailScreen';
+
 const ClientSearch = createStackNavigator();
 
 export function ClientStack({navigation, route}) {
@@ -61,6 +63,16 @@ export function ClientStack({navigation, route}) {
           headerShown: false,
         })}
       />
+     
+       <ClientSearch.Screen
+        name="DetailScreen"
+        component={DetailScreen}
+        options={() => ({
+          headerShown: false,
+        })}
+      />
+       
+   
 
     </ClientSearch.Navigator>
   );

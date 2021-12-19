@@ -5,9 +5,10 @@ import HotelMapScreen from '../screens/HotelMapScreen';
 
 import SearchResultScreen from '../screens/SearchResultScreen';
 import HotelInfoScreen from '../screens/HotelInfoScreen';
-import Info from '../screens/Info';
-import MoreInfoScreen from '../screens/MoreInfoScreen';
-import Splash from '../screens/authScreens/WelcomeScreen';
+
+import DetailScreen from '../screens/DetailScreen';
+
+import SelectRoom from '../screens/SelectRoom';
 
 const App = createStackNavigator();
 
@@ -47,24 +48,24 @@ export function AppStack() {
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
+
       <App.Screen
-        name="Info"
-        component={Info}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-      <App.Screen
-        name="MoreInfoScreen"
-        component={MoreInfoScreen}
+        name="DetailScreen"
+        component={DetailScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
 
-     
+<App.Screen
+        name="SelectRoom"
+        component={SelectRoom}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
     </App.Navigator>
   );
 }

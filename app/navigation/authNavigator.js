@@ -9,7 +9,7 @@ import DrawerNavigator from './DrawerNavigator';
 import Splash from '../screens/authScreens/WelcomeScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import HotelInfoScreen from '../screens/HotelInfoScreen';
-import Info from '../screens/Info';
+
 import MoreInfoScreen from '../screens/MoreInfoScreen';
 import SignUpScreen from '../screens/authScreens/SignUpScreen';
 
