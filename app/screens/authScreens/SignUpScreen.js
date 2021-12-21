@@ -33,6 +33,7 @@ const SignUpScreen = ({navigation}) => {
     try {
       await auth().createUserWithEmailAndPassword(email, password);
       console.log('USER ACCOUNT CREATED');
+      Alert.alert('User Acount Created');
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         Alert.alert('That email address is already inuse');

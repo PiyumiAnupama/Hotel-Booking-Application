@@ -14,15 +14,6 @@ import {Icon, Button} from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import auth from '@react-native-firebase/auth';
 
-const initialValues = {
-  phone_number: '',
-  name: '',
-  family_name: '',
-  password: '',
-  email: '',
-  username: '',
-};
-
 const DetailScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -32,41 +23,25 @@ const DetailScreen = ({navigation}) => {
         navigation={navigation}
       />
       <ScrollView keyboardShouldPersistTaps="always">
-        <View style={styles.view1}>
-          <Text style={styles.text1}>Sign-Up</Text>
-        </View>
         <Formik>
           {props => (
             <View style={styles.view2}>
-              <View>
-                <Text style={styles.text2}>New on Hotel Booking ?</Text>
-              </View>
+              <View style={styles.view15} />
+              <View style={styles.view15} />
+              <View style={styles.view15} />
+              <View style={styles.view15} />
               <View style={styles.view6}>
                 <TextInput
-                  placeholder="Mobile Number"
+                  placeholder="First Name"
                   style={styles.input1}
-                  keyboardType="number-pad"
                   autoFocus={true}
                   onChangeText={props.handleChange('phone_number')}
                 />
               </View>
               <View style={styles.view6}>
-                <TextInput
-                  placeholder="First Name"
-                  style={styles.input1}
-                  autoFocus={false}
-                  onChangeText={props.handleChange('name')}
-                />
+                <TextInput placeholder="Last Name" style={styles.input1} />
               </View>
 
-              <View style={styles.view6}>
-                <TextInput
-                  placeholder="Last Name"
-                  style={styles.input1}
-                  autoFocus={false}
-                  onChangeText={props.handleChange('family_name')}
-                />
-              </View>
               <View style={styles.view10}>
                 <View>
                   <Icon
@@ -87,67 +62,27 @@ const DetailScreen = ({navigation}) => {
               </View>
 
               <View style={styles.view14}>
-                <Animatable.View>
-                  <Icon name="lock" color={Colors.grey3} type="material" />
-                </Animatable.View>
                 <TextInput
-                  placeholder="Password"
+                  placeholder="Phone Number"
                   style={{flex: 1}}
                   autoFocus={false}
-                  onChangeText={props.handleChange('password')}
                 />
-                <Animatable.View>
-                  <Icon
-                    name="visibility-off"
-                    color={Colors.grey3}
-                    type="material"
-                    style={{marginRight: 10}}
-                  />
-                </Animatable.View>
               </View>
 
-              <View style={styles.view15}>
-                <Text style={styles.text3}>
-                  By creating or logging into an account you are
-                </Text>
-                <View style={styles.view16}>
-                  <Text style={styles.text3}>agreeing with our </Text>
-                  <Text style={styles.text4}> Terms & Conditions</Text>
-                  <Text style={styles.text3}> and </Text>
-                </View>
-                <Text style={styles.text4}> Privacy Statement</Text>
-              </View>
+              <View style={styles.view15} />
               <View style={styles.view17}>
                 <Button
-                  title="Create my account"
+                  title="Conform Booking"
                   buttonStyle={styles.button1}
                   titleStyle={styles.title1}
-                  onPress={props.handleSubmit}
+                  onPress={() => {
+                    navigation.navigate('ThankYouScreen');
+                  }}
                 />
               </View>
             </View>
           )}
         </Formik>
-        <View style={styles.view18}>
-          <Text style={styles.text5}>OR</Text>
-        </View>
-        <View style={styles.view19}>
-          <View style={styles.view20}>
-            <Text style={styles.text6}>
-              Already have an account with Hotel Booking ?
-            </Text>
-          </View>
-          <View style={styles.view21}>
-            <Button
-              title="Sign-In"
-              buttonStyle={styles.button2}
-              titleStyle={styles.title2}
-              onPress={() => {
-                navigation.navigate('SignInScreen');
-              }}
-            />
-          </View>
-        </View>
       </ScrollView>
     </View>
   );

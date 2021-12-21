@@ -33,34 +33,8 @@ export default function Homescreen({navigation}) {
               marginTop: 10,
               flexDirection: 'row',
               justifyContent: 'space-evenly',
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                setDelivery(true);
-              }}>
-              <View
-                style={{
-                  ...styles.deliveryButton,
-                  backgroundColor: delivery ? Colors.buttons : Colors.grey4,
-                }}>
-                <Text style={styles.deliveryText}>Home</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => {
-                setDelivery(false);
-                navigation.navigate('HotelMapScreen');
-              }}>
-              <View
-                style={{
-                  ...styles.deliveryButton,
-                  backgroundColor: delivery ? Colors.grey4 : Colors.buttons,
-                }}>
-                <Text style={styles.deliveryText}>Map</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+            }}
+          />
         </View>
         <View style={styles.filterView}>
           <View
@@ -228,23 +202,7 @@ export default function Homescreen({navigation}) {
           </View>
         </View>
       </ScrollView>
-      {delivery && (
-        <View style={styles.floatButton}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('HotelMapScreen');
-            }}>
-            <Icon
-              name="place"
-              type="material"
-              size={32}
-              color={Colors.buttons}
-            />
-
-            <Text style={{color: Colors.grey2}}>Map</Text>
-          </TouchableOpacity>
-        </View>
-      )}
+     
     </View>
   );
 }

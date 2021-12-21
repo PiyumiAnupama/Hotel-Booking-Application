@@ -16,14 +16,6 @@ import * as Animatable from 'react-native-animatable';
 import auth from '@react-native-firebase/auth';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const initialValues = {
-  phone_number: '',
-  name: '',
-  family_name: '',
-  password: '',
-  email: '',
-  username: '',
-};
 
 const SelectRoom = ({navigation}) => {
   return (

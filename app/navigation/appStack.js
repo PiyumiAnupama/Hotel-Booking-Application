@@ -9,6 +9,7 @@ import HotelInfoScreen from '../screens/HotelInfoScreen';
 import DetailScreen from '../screens/DetailScreen';
 
 import SelectRoom from '../screens/SelectRoom';
+import ThankYouScreen from '../screens/ThankYouScreen';
 
 const App = createStackNavigator();
 
@@ -61,6 +62,14 @@ export function AppStack() {
 <App.Screen
         name="SelectRoom"
         component={SelectRoom}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+      <App.Screen
+        name="ThankYouScreen"
+        component={ThankYouScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,

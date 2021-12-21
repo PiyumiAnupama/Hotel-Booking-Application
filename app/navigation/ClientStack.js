@@ -11,6 +11,7 @@ import HotelInfoScreen from '../screens/HotelInfoScreen';
 import Info from '../screens/Info';
 
 import DetailScreen from '../screens/DetailScreen';
+import ThankYouScreen from '../screens/ThankYouScreen';
 
 const ClientSearch = createStackNavigator();
 
@@ -67,6 +68,13 @@ export function ClientStack({navigation, route}) {
        <ClientSearch.Screen
         name="DetailScreen"
         component={DetailScreen}
+        options={() => ({
+          headerShown: false,
+        })}
+      />
+       <ClientSearch.Screen
+        name="ThankYouScreen"
+        component={ThankYouScreen}
         options={() => ({
           headerShown: false,
         })}

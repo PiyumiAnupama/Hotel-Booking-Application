@@ -51,12 +51,12 @@ export default function RootBottomTab() {
       />
 
       <BottomTab.Screen
-        name="MyAccount"
+        name="Favorite"
         component={MyAccount}
         options={{
-          tabBarLabel: 'My Account',
+          tabBarLabel: 'Favorite',
           tabBarIcon: ({color, size}) => (
-            <Icon name="person" type="material" color={color} size={size} />
+            <Icon name="favorite" type="material" color={color} size={size} />
           ),
         }}
       />
