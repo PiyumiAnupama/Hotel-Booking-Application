@@ -6,7 +6,6 @@ import {
   ScrollView,
   TextInput,
   Alert,
-  Touchable,
 } from 'react-native';
 import {Colors} from '../global/styles';
 import Header from '../components/Header';
@@ -14,10 +13,12 @@ import {Formik} from 'formik';
 import {Icon, Button} from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import auth from '@react-native-firebase/auth';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  TouchableOpacity,
+  TouchableHighlight,
+} from 'react-native-gesture-handler';
 
-
-const SelectRoom = ({navigation}) => {
+const SelectRoom = ({navigation, onPress}) => {
   return (
     <View style={styles.container}>
       <Header title="Hotel Booking" type="arrow-left" navigation={navigation} />
@@ -36,7 +37,7 @@ const SelectRoom = ({navigation}) => {
             <Text style={styles.text8}>Free cancellation at any time </Text>
             <Text style={styles.text8}>Breakfast available</Text>
             <Text style={styles.text8}>Pay at the property</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress} activeOpacity={10}>
               <View style={styles.view14}>
                 <Text style={styles.text3}>Price for 1 night</Text>
               </View>
@@ -45,10 +46,11 @@ const SelectRoom = ({navigation}) => {
                   style={{
                     ...styles.text11,
                     textDecorationLine: 'line-through',
+                    color:'yellow',
                   }}>
                   LKR 11 755
                 </Text>
-                <Text style={styles.text11}> LKR 11 755</Text>
+                <Text style={styles.text11}>          LKR 11 755</Text>
               </View>
               <View style={styles.view14}>
                 <Text style={styles.text11}>+ LKR 1 305 taxes and charges</Text>
@@ -75,10 +77,11 @@ const SelectRoom = ({navigation}) => {
                   style={{
                     ...styles.text11,
                     textDecorationLine: 'line-through',
+                    color:'yellow',
                   }}>
                   LKR 11 755
                 </Text>
-                <Text style={styles.text11}> LKR 11 755</Text>
+                <Text style={styles.text11}>          LKR 11 755</Text>
               </View>
               <View style={styles.view14}>
                 <Text style={styles.text11}>+ LKR 1 305 taxes and charges</Text>
@@ -104,10 +107,11 @@ const SelectRoom = ({navigation}) => {
                   style={{
                     ...styles.text11,
                     textDecorationLine: 'line-through',
+                    color:'yellow',
                   }}>
                   LKR 11 755
                 </Text>
-                <Text style={styles.text11}> LKR 11 755</Text>
+                <Text style={styles.text11}>          LKR 11 755</Text>
               </View>
               <View style={styles.view14}>
                 <Text style={styles.text11}>+ LKR 1 305 taxes and charges</Text>
@@ -133,10 +137,11 @@ const SelectRoom = ({navigation}) => {
                   style={{
                     ...styles.text11,
                     textDecorationLine: 'line-through',
+                    color:'yellow',
                   }}>
                   LKR 11 755
                 </Text>
-                <Text style={styles.text11}> LKR 11 755</Text>
+                <Text style={styles.text11}>          LKR 11 755</Text>
               </View>
               <View style={styles.view14}>
                 <Text style={styles.text11}>+ LKR 1 305 taxes and charges</Text>
@@ -162,10 +167,11 @@ const SelectRoom = ({navigation}) => {
                   style={{
                     ...styles.text11,
                     textDecorationLine: 'line-through',
+                    color:'yellow',
                   }}>
                   LKR 11 755
                 </Text>
-                <Text style={styles.text11}> LKR 11 755</Text>
+                <Text style={styles.text11}>          LKR 11 755</Text>
               </View>
               <View style={styles.view14}>
                 <Text style={styles.text11}>+ LKR 1 305 taxes and charges</Text>
@@ -180,6 +186,7 @@ const SelectRoom = ({navigation}) => {
         }}>
         <View style={styles.view11}>
           <View style={styles.view12}>
+          <Text style={styles.text9}>Total : LKR 11 755</Text>
             <Text style={styles.text13}>Reserve</Text>
           </View>
         </View>
@@ -322,7 +329,7 @@ const styles = StyleSheet.create({
   text13: {
     paddingHorizontal: 100,
     fontWeight: 'bold',
-    fontSize: 25,
+    fontSize: 29,
     color: Colors.cardbackground,
     alignItems: 'center',
     justifyContent: 'center',
