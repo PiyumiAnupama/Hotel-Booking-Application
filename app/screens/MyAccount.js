@@ -37,7 +37,7 @@ export default function MyAccount({navigation}) {
         <View style={styles.slider1}>
           <Image
             source={require('../assets/Images/VectorImages/2.jpg')}
-            style={{height: 350, width: 350,marginLeft:20}}
+            style={{height: 350, width: 350, marginLeft: 20}}
           />
         </View>
       </View>
